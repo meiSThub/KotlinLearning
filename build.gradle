@@ -1,13 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.32"
+    ext.globalConfig = "${rootDir}/globalConfig.gradle"
+    apply from: globalConfig
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin.version}"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -15,9 +16,11 @@ buildscript {
 }
 
 allprojects {
+    // 所有的子工程都应用这个配置文件
+    apply from: globalConfig
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
