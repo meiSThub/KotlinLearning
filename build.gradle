@@ -1,10 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//引入task依赖关系图生成插件
 buildscript {
+    ext {
+        kotlin_version = '1.5.10'
+    }
     ext.globalConfig = "${rootDir}/globalConfig.gradle"
     apply from: globalConfig
     repositories {
-        google()
+        jcenter()
         mavenCentral()
+        google()
+        maven { url "https://maven.google.com" }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://plugins.gradle.org/m2/" }
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
@@ -12,8 +21,12 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath "gradle.plugin.com.dorongold.plugins:task-tree:1.5"
     }
 }
+
+apply plugin: com.dorongold.gradle.tasktree.TaskTreePlugin
+
 
 allprojects {
     // 所有的子工程都应用这个配置文件
