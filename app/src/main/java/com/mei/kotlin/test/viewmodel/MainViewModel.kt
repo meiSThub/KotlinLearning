@@ -2,6 +2,7 @@ package com.mei.kotlin.test.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 /**
@@ -16,5 +17,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
 
         }
+
+        viewModelScope.cancel()
     }
 }

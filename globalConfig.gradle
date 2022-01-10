@@ -5,9 +5,8 @@
 ext {
     kotlin_version = "1.5.10"
     kotlin = [
-            version             : "1.5.10",// kotlin版本
-            kotlin_gradle_plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",// kt插件
-            kotlin_stdlib       : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",// kotlin标准库
+            kotlin_gradle_plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10",// kt插件
+            kotlin_stdlib       : "org.jetbrains.kotlin:kotlin-stdlib:1.5.10",// kotlin标准库
 
             // kotlin协程相关
             coroutines          : [
