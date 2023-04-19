@@ -3,3 +3,4 @@ include ':app'
 rootProject.name = "KotlinLearning"
 include ':CoroutineBase'
 include ':CoroutineInAndroid'
+include ':flowtest'
