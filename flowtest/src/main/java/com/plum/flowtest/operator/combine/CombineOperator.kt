@@ -1,4 +1,4 @@
-package com.plum.flowtest.combine
+package com.plum.flowtest.operator.combine
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

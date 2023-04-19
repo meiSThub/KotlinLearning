@@ -1,4 +1,4 @@
-package com.plum.flowtest.function
+package com.plum.flowtest.operator.function
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*

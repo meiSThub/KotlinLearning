@@ -1,4 +1,4 @@
-package com.plum.flowtest.callback
+package com.plum.flowtest.operator.callback
 
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking

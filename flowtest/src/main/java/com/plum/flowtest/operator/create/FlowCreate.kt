@@ -1,4 +1,4 @@
-package com.plum.flowtest.create
+package com.plum.flowtest.operator.create
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose

@@ -1,4 +1,4 @@
-package com.plum.flowtest.transform
+package com.plum.flowtest.operator.transform
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel

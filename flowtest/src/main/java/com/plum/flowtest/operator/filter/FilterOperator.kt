@@ -1,4 +1,4 @@
-package com.plum.flowtest.filter
+package com.plum.flowtest.operator.filter
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
