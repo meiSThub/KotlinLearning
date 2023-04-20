@@ -40,10 +40,13 @@ class FlowCreate {
 
     /**
      * 将回调方法改造成flow ,类似suspendCoroutine
+     *
+     * 比如：网络请求接口回调，就可以用callbackFlow 方法把接口回调改成返回Flow对象
      */
     fun createFlow5(): Flow<String> = callbackFlow {
         send("emit hello")
         awaitClose {
+            //如果回调需要解注册，可以在这里操作
             println("finished:close")
         }
     }

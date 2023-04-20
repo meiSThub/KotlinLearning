@@ -169,7 +169,10 @@ suspend fun flowOn() {
         // 指定上游操作的执行线程
         flowOf(1, 2, 3).onEach {
             println("onEach,coroutine name:${currentCoroutineContext()[CoroutineName]}")
-        }.flowOn(Dispatchers.IO + CoroutineName("IO线程")).collect {
+        }.flowOn(Dispatchers.IO + CoroutineName("IO线程")).map {
+            println("map,thread:${Thread.currentThread()}")
+            "map($it)"
+        }.flowOn(Dispatchers.Default).collect {
             println("collect:$it")
         }
     }

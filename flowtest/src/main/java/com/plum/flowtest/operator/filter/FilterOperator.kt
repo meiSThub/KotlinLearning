@@ -153,6 +153,7 @@ suspend fun debounce() {
     println("==================== debounce 方法====================")
     flow {
         for (i in 1..5) {
+            delay(100)
             emit(i)
         }
     }.debounce(200).collect {

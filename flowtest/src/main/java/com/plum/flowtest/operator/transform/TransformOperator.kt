@@ -231,7 +231,7 @@ suspend fun produceIn() {
 }
 
 /**
- * 将普通flow 转化为 SharedFlow , 其有三个参数
+ * 将普通flow 转化为 SharedFlow ,即把冷数据流变为热数据流， 其有三个参数
  * scope:  CoroutineScope 开始共享的协程范围
  * started:  SharingStarted 控制何时开始和停止共享的策略
  * replay: Int = 0 发给 新的订阅者 的旧值数量
