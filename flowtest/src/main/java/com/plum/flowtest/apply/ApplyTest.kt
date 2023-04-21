@@ -4,6 +4,8 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flow
+import kotlin.system.measureTimeMillis
 
 /**
  * @author:meixianbing
@@ -12,6 +14,12 @@ import kotlinx.coroutines.flow.filter
  */
 
 fun main() = runBlocking {
+    testEmitAll()
+    testBuffer6()
+}
+
+suspend fun testEmitAll() {
+    println("==================== emitAll 方法 =====================")
     val playState = MutableStateFlow("")
     val playItem = MutableStateFlow("")
 
@@ -38,4 +46,25 @@ fun main() = runBlocking {
     playState.emit("state(6)")
     delay(10)
     playState.emit("state(2)")
+}
+
+/**
+ * 下面的代码，即使加上了 buffer，也不会影响最终的时间，因为生产者几乎不耗时，所有的耗时都是消费者，所以有没有缓冲都没关系
+ * 即 消费者 不影响生产者的 生成速度
+ */
+suspend fun testBuffer6() {
+    println("==================== buffer 方法 =====================")
+    val flow = flow {
+        (1..3).forEach {
+            println("emit $it")
+            emit(it)
+        }
+    }
+    val time = measureTimeMillis {
+        flow.collect {
+            delay(2000)
+            println("collect:$it")
+        }
+    }
+    println("use time:${time} ms")
 }
